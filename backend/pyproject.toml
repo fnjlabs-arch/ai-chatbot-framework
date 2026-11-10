@@ -1,5 +1,5 @@
 [project]
-name = "ai-chatbot-framework"
+name = "sadsha-ai-agent"
 version = "0.1.0"
 description = "A simple, friendly personal AI agent with a private sandbox, memory, MCP tools and scheduled tasks."
 requires-python = ">=3.12"

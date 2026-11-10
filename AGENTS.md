@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Guide for coding agents (and humans) working on AI Chatbot Framework. Read this before changing code.
+Guide for coding agents (and humans) working on SadSha AI Agent. Read this before changing code.
 
 ## What it is
 
@@ -79,7 +79,7 @@ make lint         # ruff + tsc
    `tests/test_sandbox_contract.py`. User/model paths go through `workspace.resolve`. Every query is scoped to `current_user`.
 6. **MCP connections live in their own task** (`_Connection._run`); never enter SDK contexts in one task
    and exit them in another.
-7. **Design** follows the "AI Chatbot Framework" design system (Claude Design). Its tokens are committed as
+7. **Design** follows the "SadSha AI Agent" design system (Claude Design). Its tokens are committed as
    `design/tokens.json` — the single source; `npm run tokens` (also run by `build`/`dev`) generates
    `frontend/src/tokens.css`, which must never be edited by hand (CI checks it). `design/README.md` is the
    brand book and `design/components.css` the reference component styles. Dark first, light via the OS;

@@ -47,13 +47,13 @@ format: ## Auto-format Python
 	cd backend && ../.venv/bin/ruff format . && ../.venv/bin/ruff check --fix .
 
 sandbox-image: ## Build the per-user sandbox image
-	docker build -t acf-sandbox:latest sandbox
+	docker build -t sadsha-ai-agent-sandbox:latest sandbox
 
 build: sandbox-image ## Build the app image
-	docker build -t ai-chatbot-framework:latest .
+	docker build -t sadsha-ai-agent:latest .
 
-up: ## Production: Caddy + HTTPS on ACF_DOMAIN (see .env.example); pulls published images
-	docker compose up -d
+up: ## Production: Caddy + HTTPS on ACF_DOMAIN (see .env.example); builds from source (no published images yet)
+	docker compose up -d --build
 
 down: ## Stop the production stack
 	docker compose down

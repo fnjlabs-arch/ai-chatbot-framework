@@ -295,7 +295,7 @@ class Proxy:
             await self.check(method, url.path, parse_qs(url.query), body)
         except Denied as e:
             log.warning("denied %s %s: %s", method, url.path, e)
-            return await self._reply(writer, 403, f"Blocked by the AI Chatbot Framework Docker proxy: {e}")
+            return await self._reply(writer, 403, f"Blocked by the SadSha AI Agent Docker proxy: {e}")
 
         upgrade = "upgrade" in lower.get("connection", "").lower()
         keep = [(k, v) for k, v in headers if k.lower() not in ("connection", "keep-alive", "proxy-connection")]

@@ -31,14 +31,14 @@ def message_title(text: str) -> str:
 
 
 DEFAULT_CONTEXT = """# About me
-Write anything AI Chatbot Framework should know about you: who you are, how you like answers, what you work on.
+Write anything SadSha AI Agent should know about you: who you are, how you like answers, what you work on.
 
 # Preferences
 - Keep answers short and clear.
 """
 
 DEFAULT_MEMORY = """# Memory
-Facts about you that matter in every chat. AI Chatbot Framework keeps this short and up to date.
+Facts about you that matter in every chat. SadSha AI Agent keeps this short and up to date.
 """
 
 
@@ -56,7 +56,7 @@ def workspace_dir(user_id: int) -> Path:
 
 
 def host_workspace_dir(user_id: int) -> str:
-    """Path of the workspace as seen by the Docker daemon (differs when AI Chatbot Framework runs in a container)."""
+    """Path of the workspace as seen by the Docker daemon (differs when SadSha AI Agent runs in a container)."""
     local = workspace_dir(user_id)
     host_root = config.settings.sandbox_host_data_dir
     if not host_root:

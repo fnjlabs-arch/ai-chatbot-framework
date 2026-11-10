@@ -14,7 +14,7 @@ from datetime import UTC, datetime
 from acf import config, scan, skills, workspace
 from acf.db import Project
 
-BASE = """You are the assistant in AI Chatbot Framework: a capable agent working for one person, who may \
+BASE = """You are the assistant in SadSha AI Agent: a capable agent working for one person, who may \
 not be technical.
 
 How to talk:

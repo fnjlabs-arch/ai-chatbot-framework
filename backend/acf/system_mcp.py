@@ -1,4 +1,4 @@
-"""The built-in `system` MCP server: features of AI Chatbot Framework itself, for the agent.
+"""The built-in `system` MCP server: features of SadSha AI Agent itself, for the agent.
 
 It runs in the API process (an in-memory MCP connection, no sandbox) and is bound to one user, so every
 query it makes is scoped to that user. McpHub connects it next to the user's own servers, so the agent
@@ -61,7 +61,7 @@ def _invalid_as_error() -> Iterator[None]:
 
 
 def server(user_id: int) -> MCPServer:
-    mcp = MCPServer(NAME, instructions="Features of AI Chatbot Framework: scheduled tasks.")
+    mcp = MCPServer(NAME, instructions="Features of SadSha AI Agent: scheduled tasks.")
 
     def own(db, task_id: int) -> Task:
         task = db.get(Task, task_id)

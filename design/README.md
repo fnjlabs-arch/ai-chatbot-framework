@@ -1,4 +1,4 @@
-# AI Chatbot Framework
+# SadSha AI Agent
 
 A self-hosted AI agent for people who don't write code. The look is called **Signal**: a precise
 workspace borrowing the discipline of tools like Linear (not their look), with a quiet, futuristic
@@ -58,11 +58,11 @@ do: "Could not reach the model. Check the server address in Settings." No exclam
 ## Iconography
 
 1.75px stroke, 20px default size, round caps and joins, drawn inline as SVG in `currentColor`.
-The logo is a green ring holding a zigzag wave (three peaks, four valleys, ends at mid-height), drawn
-with round caps in `brand-signal`, beside the wordmark "AI Chatbot Framework" in `brand-ink`. It sits on
+The logo is a green ring holding an S, drawn
+with round caps in `brand-signal`, beside the wordmark "SadSha AI Agent" in `brand-ink`. It sits on
 the surface directly: no tile, no outline, no other colour. Mark SVG (24-unit box):
-`<circle cx="12" cy="12" r="10.25"/>` + `<polyline points="4.4,12 6.3,15.8 8.2,8.4 10.1,15.8 12,8.4 13.9,15.8 15.8,8.4 17.7,15.8 19.6,12"/>`.
-While the agent works, only the wave breathes (`acf-wave-live`).
+`<circle cx="12" cy="12" r="10.25"/>` + `<path d="M18 6.2 C16.2 4.6 12.8 4.4 10.6 6 C8.6 7.4 9 10 11 11.2 C13.4 12.6 16.4 12.8 16.6 15.4 C16.8 18 13.4 19.6 10.4 18.8 C8.6 18.3 7.2 17.2 6.4 15.8"/>`.
+While the agent works, only the mark breathes (`wave-live`).
 
 ## Layout
 

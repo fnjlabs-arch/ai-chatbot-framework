@@ -1,4 +1,4 @@
-"""Connect a stdio ACP client (an editor, a CLI) to AI Chatbot Framework.
+"""Connect a stdio ACP client (an editor, a CLI) to SadSha AI Agent.
 
 ACP clients usually start an agent as a subprocess and talk newline-delimited JSON-RPC over stdio. This
 bridge is that subprocess: it forwards each stdin line to the server's ACP WebSocket and writes each

@@ -44,7 +44,7 @@ class Skill:
     description: str
     path: str  # relative to the workspace, e.g. skills/charts/SKILL.md
     files: int
-    builtin: bool = False  # came with AI Chatbot Framework (acf/builtin_skills/), possibly changed since
+    builtin: bool = False  # came with SadSha AI Agent (acf/builtin_skills/), possibly changed since
 
     def to_dict(self) -> dict:
         return {

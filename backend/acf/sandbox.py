@@ -401,7 +401,7 @@ class DockerSandbox(Sandbox):
             owner = workspace.workspace_dir(self.user_id).stat()
             if owner.st_uid == 0 or owner.st_gid == 0:
                 raise SandboxError(
-                    "Sandboxes don't run as root. Run AI Chatbot Framework as a normal user, or make that user "
+                    "Sandboxes don't run as root. Run SadSha AI Agent as a normal user, or make that user "
                     "own the data folder."
                 )
             await self._ensure_network()

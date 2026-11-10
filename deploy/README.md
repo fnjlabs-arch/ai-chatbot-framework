@@ -11,7 +11,7 @@ don't know, set up these four layers. The compose stack expects gVisor; the rest
 | Egress firewall | Sandboxes reaching the host, your private network or cloud metadata (instance credentials) | `sandbox-firewall.sh`, below |
 
 The app itself runs as uid 10001 with no capabilities, and so do sandboxes. Sandboxes get their own bridge
-network (`acf-sandbox`, interface `acf-sbx0`) with traffic between containers turned off.
+network (`sadsha-sandbox`, interface `sadsha-sbx0`) with traffic between containers turned off.
 
 ## 1. gVisor
 
@@ -53,12 +53,12 @@ remapping off.
 ## 3. Egress firewall
 
 ```sh
-sudo install -m 755 deploy/sandbox-firewall.sh /usr/local/sbin/acf-sandbox-firewall
-sudo install -m 644 deploy/acf-sandbox-firewall.service /etc/systemd/system/
-sudo systemctl enable --now acf-sandbox-firewall
+sudo install -m 755 deploy/sandbox-firewall.sh /usr/local/sbin/sadsha-sandbox-firewall
+sudo install -m 644 deploy/sadsha-sandbox-firewall.service /etc/systemd/system/
+sudo systemctl enable --now sadsha-sandbox-firewall
 ```
 
-Traffic from `acf-sbx0` may then only go to the public internet (and to the host's DNS resolvers on port
+Traffic from ``sadsha-sbx0`` may then only go to the public internet (and to the host's DNS resolvers on port
 53). Private, link-local and reserved ranges are refused, including 169.254.169.254, and so is the host
 itself. Allow extra destinations with `ACF_SANDBOX_ALLOW="10.1.2.3/32"` in the unit file. Set
 `ACF_SANDBOX_NETWORK=none` instead to cut sandboxes off from the network completely.

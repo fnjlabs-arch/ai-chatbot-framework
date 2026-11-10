@@ -72,7 +72,7 @@ NOT_FOUND = -32002  # ACP: resource not found
 RUN_FAILED = -32000
 
 try:
-    VERSION = version("ai-chatbot-framework")
+    VERSION = version("sadsha-ai-agent")
 except PackageNotFoundError:  # pragma: no cover - running from a plain checkout
     VERSION = "0"
 
@@ -448,7 +448,7 @@ async def initialize(conn: Connection, params: dict[str, Any]) -> dict[str, Any]
             "sessionCapabilities": {"list": {}},
         },
         "authMethods": [],
-        "agentInfo": {"name": "ai-chatbot-framework", "title": "AI Chatbot Framework", "version": VERSION},
+        "agentInfo": {"name": "sadsha-ai-agent", "title": "SadSha AI Agent", "version": VERSION},
     }
 
 

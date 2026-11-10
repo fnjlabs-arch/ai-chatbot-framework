@@ -11,14 +11,14 @@ function Svg({ children, size = 20 }: { children: ReactNode; size?: number }) {
 
 const WAVE = "4.4,12 6.3,15.8 8.2,8.4 10.1,15.8 12,8.4 13.9,15.8 15.8,8.4 17.7,15.8 19.6,12";
 
-/** The AI Chatbot Framework logo mark: a green ring holding a three-peak wave. */
+/** The SadSha AI Agent logo mark: a green ring holding an S. */
 export function Mark({ size = 26, live = false }: { size?: number; live?: boolean }) {
   return (
     <span className="mark">
       <svg aria-hidden="true" className={live ? "wave-live" : undefined} width={size} height={size} viewBox="0 0 24 24"
         fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10.25" />
-        <polyline points={WAVE} />
+        <path d="M18 6.2 C16.2 4.6 12.8 4.4 10.6 6 C8.6 7.4 9 10 11 11.2 C13.4 12.6 16.4 12.8 16.6 15.4 C16.8 18 13.4 19.6 10.4 18.8 C8.6 18.3 7.2 17.2 6.4 15.8" />
       </svg>
     </span>
   );
@@ -35,7 +35,7 @@ export function Wave({ label }: { label: string }) {
 }
 
 export function Lockup({ size = 26 }: { size?: number }) {
-  return <><Mark size={size} /><span className="wordmark">AI Chatbot Framework</span></>;
+  return <><Mark size={size} /><span className="wordmark">SadSha AI Agent</span></>;
 }
 
 export const IconPlus = ({ size = 18 }: { size?: number }) => <Svg size={size}><path d="M12 5v14M5 12h14" /></Svg>;

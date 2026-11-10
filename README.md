@@ -1,13 +1,13 @@
-<p align="center"><img src="frontend/public/favicon.svg" width="72" alt="AI Chatbot Framework logo"></p>
+<p align="center"><img src="frontend/public/favicon.svg" width="72" alt="SadSha AI Agent logo"></p>
 
-<h1 align="center">AI Chatbot Framework</h1>
+<h1 align="center">SadSha AI Agent</h1>
 
 <p align="center">A lean, self-hosted AI agent that everyone can use. Each person gets an assistant with
 its own private computer, their files, skills, app connections and scheduled jobs.</p>
 
-![AI Chatbot Framework home: chats, files, skills, tasks, connections and your apps in the sidebar](docs/screenshots/home.webp)
+![SadSha AI Agent home: chats, files, skills, tasks, connections and your apps in the sidebar](docs/screenshots/home.webp)
 
-> AI Chatbot Framework used to be an intent/entity NLU chatbot builder. Version 2 rebuilds it as an
+> SadSha AI Agent used to be an intent/entity NLU chatbot builder. Version 2 rebuilds it as an
 > agent. The old code is in the git history.
 
 ## Features
@@ -95,10 +95,10 @@ All screenshots are taken by the end-to-end tests (`docs/screenshots/e2e/`).
 On a server with Docker and a domain pointing at it:
 
 ```sh
-git clone https://github.com/alfredfrancis/ai-chatbot-framework.git && cd ai-chatbot-framework
+git clone https://github.com/fnjlabs-arch/ai-chatbot-framework.git && cd ai-chatbot-framework
 cp .env.example .env        # set ACF_DOMAIN, POSTGRES_PASSWORD, ACF_SECRET_KEY and a model key
 # prepare the host first: gVisor, user-namespace remapping, sandbox firewall (deploy/README.md)
-docker compose up -d        # or: make up
+docker compose up -d --build   # builds from source; `make up` does the same
 ```
 
 Set `ACF_ADMIN_EMAIL` and `ACF_ADMIN_PASSWORD` in `.env` to create your account at startup (sign-ups are
@@ -108,8 +108,8 @@ account, then set `ACF_ALLOW_SIGNUP=false`.
 Other host ports: `ACF_HTTP_PORT` / `ACF_HTTPS_PORT` (e.g. `127.0.0.1:8088` behind a tunnel or another proxy).
 When that tunnel or proxy terminates HTTPS (e.g. Cloudflare Tunnel), also set `ACF_CADDY_ADDRESS=:80` so Caddy
 serves plain HTTP.
-The stack pulls the published images (`ACF_REGISTRY`/`ACF_VERSION` in `.env`); to build from source
-instead (needed until the first release publishes images), run `docker compose up -d --build`. The
+The stack pulls the published images (`ACF_REGISTRY`/`ACF_VERSION` in `.env`) once a release publishes
+them; until then, build from source with `docker compose up -d --build`. The
 database is PostgreSQL in its own container (volume `postgres-data`); workspaces live in `./data`, or
 `ACF_DATA_PATH`. Back up both. Logs are rotated and the app has a health check.
 
@@ -175,9 +175,9 @@ Environment variables (users can override the model in **Settings**):
 | `ACF_ALLOW_SIGNUP` | `true`, `false` if `ACF_ADMIN_EMAIL` is set | Open sign-ups. When `false`, the first account can still be created on an empty server |
 | `ACF_COOKIE_SECURE` | `false` | `true` behind HTTPS |
 | `ACF_SANDBOX` | `docker` | `docker`, `local` for development (**not isolated**), or your own adapter as `package.module:Class` (see [architecture](docs/architecture.md#sandboxes-backendacfsandboxpy)) |
-| `ACF_SANDBOX_IMAGE` | `acf-sandbox:latest` | Sandbox image |
-| `ACF_SANDBOX_NETWORK` | `acf-sandbox` | Created when missing, with traffic between sandboxes off. `none` cuts sandboxes off from the internet |
-| `ACF_SANDBOX_BRIDGE` | `acf-sbx0` | Interface name of that network (the egress firewall matches it) |
+| `ACF_SANDBOX_IMAGE` | `sadsha-ai-agent-sandbox:latest` | Sandbox image |
+| `ACF_SANDBOX_NETWORK` | `sadsha-sandbox` | Created when missing, with traffic between sandboxes off. `none` cuts sandboxes off from the internet |
+| `ACF_SANDBOX_BRIDGE` | `sadsha-sbx0` | Interface name of that network (the egress firewall matches it) |
 | `ACF_SANDBOX_RUNTIME` | – (`runsc` in the production stack) | Container runtime, e.g. `runsc` for gVisor |
 | `ACF_SANDBOX_MEMORY` / `_CPUS` | `1g` / `1` | Limits per sandbox |
 | `ACF_SANDBOX_HOST_DATA_DIR` | – | Host path of the data dir when the app itself runs in Docker |

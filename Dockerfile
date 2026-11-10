@@ -1,4 +1,4 @@
-# AI Chatbot Framework app image: API + built web UI in one container.
+# SadSha AI Agent app image: API + built web UI in one container.
 FROM node:22-slim AS web
 WORKDIR /web
 # @openuidev/lang-core reports installs to PostHog unless this is set.

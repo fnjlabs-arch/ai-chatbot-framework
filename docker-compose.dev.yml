@@ -6,26 +6,26 @@
 # Web app: http://localhost:5173 (proxies /api to the API on :8000). Ports taken? Set ACF_DEV_WEB_PORT,
 # ACF_DEV_API_PORT or ACF_DEV_DB_PORT (Postgres, default 55432).
 # Real model instead of the fake: ACF_LLM_BASE_URL= ANTHROPIC_API_KEY=sk-ant-... docker compose -f docker-compose.dev.yml up
-name: ai-chatbot-framework-dev
+name: sadsha-ai-agent-dev
 
 services:
   sandbox-image:
     build: ./sandbox
-    image: acf-sandbox:dev
+    image: sadsha-ai-agent-sandbox:dev
     entrypoint: ["true"]
     restart: "no"
 
-  # Builds acf-api:dev once for the api and fake-llm services, then exits.
+  # Builds sadsha-ai-agent-api:dev once for the api and fake-llm services, then exits.
   api-image:
     build: { context: ., dockerfile: backend/Dockerfile.dev }
-    image: acf-api:dev
+    image: sadsha-ai-agent-api:dev
     entrypoint: ["true"]
     restart: "no"
 
   # As in production: the data folder belongs to the app's non-root user, and only the Docker proxy
   # has the socket.
   data-init:
-    image: acf-api:dev
+    image: sadsha-ai-agent-api:dev
     pull_policy: never
     depends_on:
       api-image:
@@ -38,7 +38,7 @@ services:
     restart: "no"
 
   docker-proxy:
-    image: acf-api:dev
+    image: sadsha-ai-agent-api:dev
     pull_policy: never
     depends_on:
       api-image:
@@ -48,10 +48,10 @@ services:
     command: ["python", "-m", "acf.docker_proxy", "--listen", "0.0.0.0:2375", "--socket", "/var/run/docker.sock"]
     environment: &dev-sandbox-env
       ACF_DATA_DIR: /data
-      ACF_SANDBOX_IMAGE: acf-sandbox:dev
-      ACF_SANDBOX_PREFIX: acf-dev
-      ACF_SANDBOX_NETWORK: acf-dev-sandbox
-      ACF_SANDBOX_BRIDGE: acf-dev0
+      ACF_SANDBOX_IMAGE: sadsha-ai-agent-sandbox:dev
+      ACF_SANDBOX_PREFIX: sadsha-dev
+      ACF_SANDBOX_NETWORK: sadsha-dev-sandbox
+      ACF_SANDBOX_BRIDGE: sadsha-dev0
       ACF_SANDBOX_RUNTIME: ${ACF_SANDBOX_RUNTIME:-}
       ACF_SANDBOX_HOST_DATA_DIR: ${PWD}/data-dev
     volumes:
@@ -77,7 +77,7 @@ services:
 
   fake-llm:
     # Reuses the image the api service builds (two services building one image name race each other).
-    image: acf-api:dev
+    image: sadsha-ai-agent-api:dev
     pull_policy: never
     depends_on:
       api-image:
@@ -87,7 +87,7 @@ services:
       - ./backend:/app/backend
 
   api:
-    image: acf-api:dev
+    image: sadsha-ai-agent-api:dev
     pull_policy: never
     depends_on:
       api-image:
@@ -123,7 +123,7 @@ services:
 
   web:
     build: { context: ., dockerfile: frontend/Dockerfile.dev }
-    image: acf-web:dev
+    image: sadsha-ai-agent-web:dev
     depends_on: [api]
     ports: ["${ACF_DEV_WEB_PORT:-5173}:5173"]
     environment:

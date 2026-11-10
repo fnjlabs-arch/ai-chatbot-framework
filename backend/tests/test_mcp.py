@@ -143,7 +143,7 @@ async def test_oauth_flow(client, user, oauth_mcp_url):
     allow = re.search(r'id="allow" href="([^"]+)"', page).group(1).replace("&amp;", "&")
     back = parse_qs(urlparse(allow).query)
 
-    # The frontend callback page posts code + state to AI Chatbot Framework
+    # The frontend callback page posts code + state to SadSha AI Agent
     r = await client.post("/api/oauth/callback", json={"code": back["code"][0], "state": back["state"][0]})
     assert r.status_code == 200 and r.json()["server"] == "notes"
     replay = await client.post("/api/oauth/callback", json={"code": back["code"][0], "state": back["state"][0]})

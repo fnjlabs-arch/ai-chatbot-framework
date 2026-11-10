@@ -1,8 +1,8 @@
 #!/bin/sh
-# Egress firewall for AI Chatbot Framework sandboxes. Run as root on the Docker host (not in a container),
-# after Docker has started; acf-sandbox-firewall.service does that at boot. Safe to run again.
+# Egress firewall for SadSha AI Agent sandboxes. Run as root on the Docker host (not in a container),
+# after Docker has started; sadsha-sandbox-firewall.service does that at boot. Safe to run again.
 #
-# Traffic from the sandbox bridge (ACF_SANDBOX_BRIDGE, default acf-sbx0) may reach the public internet
+# Traffic from the sandbox bridge (ACF_SANDBOX_BRIDGE, default sadsha-sbx0) may reach the public internet
 # only: private, shared, loopback, link-local (cloud metadata at 169.254.169.254), multicast and
 # reserved addresses are rejected, as is the host itself. The host's DNS resolvers stay reachable on
 # port 53 (Docker's embedded DNS forwards to them from the sandbox's network namespace).
@@ -11,10 +11,10 @@
 #   sandbox-firewall.sh --remove                  take the rules out again
 set -eu
 
-BRIDGE="${ACF_SANDBOX_BRIDGE:-acf-sbx0}"
+BRIDGE="${ACF_SANDBOX_BRIDGE:-sadsha-sbx0}"
 ALLOW="${ACF_SANDBOX_ALLOW:-}"
-FWD=ACF-SANDBOX
-IN=ACF-SANDBOX-IN
+FWD=SADSHA-SANDBOX
+IN=SADSHA-SANDBOX-IN
 BLOCK="0.0.0.0/8 10.0.0.0/8 100.64.0.0/10 127.0.0.0/8 169.254.0.0/16 172.16.0.0/12 192.0.0.0/24 192.0.2.0/24
 192.88.99.0/24 192.168.0.0/16 198.18.0.0/15 198.51.100.0/24 203.0.113.0/24 224.0.0.0/4 240.0.0.0/4"
 

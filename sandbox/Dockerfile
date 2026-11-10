@@ -1,7 +1,7 @@
 # The per-user sandbox image. Commands the agent runs and local (stdio) MCP servers run here.
 # Includes Python, Node.js (npx) and uv (uvx) so most MCP servers start without extra setup,
 # plus Chromium and the agent-browser CLI for browser automation.
-# Extend it (FROM acf-sandbox) to add system packages your users need.
+# Extend it (FROM sadsha-ai-agent-sandbox) to add system packages your users need.
 FROM node:22-slim AS node
 
 FROM python:3.12-slim

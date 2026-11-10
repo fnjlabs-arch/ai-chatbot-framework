@@ -193,7 +193,7 @@ function Shell({ user, onSignOut }: { user: User; onSignOut: () => void }) {
       <div className="shell">
         {navOpen && <div className="scrim" onClick={() => setNavOpen(false)} />}
         <nav className={`sidebar${navOpen ? " open" : ""}`} aria-label="Main">
-          <Link to="/" className="brand-row" aria-label="AI Chatbot Framework home"><Lockup /></Link>
+          <Link to="/" className="brand-row" aria-label="SadSha AI Agent home"><Lockup /></Link>
           <button className="search-btn" aria-label="Search or run a command" onClick={() => setCmdOpen(true)}>
             <IconSearch /><span>Search</span><Keys keys={["⌘", "K"]} />
           </button>

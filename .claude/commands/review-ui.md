@@ -1,8 +1,8 @@
 ---
-description: Screenshot every AI Chatbot Framework screen (light, dark, phone) and review against the design rules
+description: Screenshot every SadSha AI Agent screen (light, dark, phone) and review against the design rules
 ---
 Build the web app (`cd frontend && npm run build`), start the fake model
-(`cd backend && ../.venv/bin/python -m tests.fakes.fake_llm --port 9100`) and AI Chatbot Framework
+(`cd backend && ../.venv/bin/python -m tests.fakes.fake_llm --port 9100`) and SadSha AI Agent
 (`bash frontend/e2e/start-acf.sh`). With Playwright, sign up and capture Home, Chat, Files, Skills, Tasks, Connections
 and Settings at 1280×800 in light and dark mode and at 390×844.
 

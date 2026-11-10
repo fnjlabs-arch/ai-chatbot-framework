@@ -1,4 +1,4 @@
-/* AI Chatbot Framework — components from the design system. Tokens come from tokens.css,
+/* SadSha AI Agent — components from the design system. Tokens come from tokens.css,
    generated from design/tokens.json (npm run tokens). Dark first; light follows the OS. */
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
@@ -20,7 +20,7 @@ code, pre, .mono { font-family: var(--font-mono); font-size: 14px; line-height: 
 
 /* ---------- brand ---------- */
 .mark { display: inline-flex; color: var(--brand-signal); flex-shrink: 0; }
-.wave-live polyline { transform-box: fill-box; transform-origin: center; animation: speak 1.3s ease-in-out infinite; }
+.wave-live polyline, .wave-live path { transform-box: fill-box; transform-origin: center; animation: speak 1.3s ease-in-out infinite; }
 @keyframes speak { 50% { transform: scaleY(0.55); } }
 @keyframes ping { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(2.4); opacity: 0; } }
 @keyframes shimmer { to { background-position: -200% 0; } }
@@ -467,7 +467,7 @@ details.advanced[open] > summary { margin-bottom: var(--space-3); }
 /* ---------- skills ---------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .wave-live polyline, .spin, .cmd, .live-dot::after, .step.live .verb { animation: none; }
+  .wave-live polyline, .wave-live path, .spin, .cmd, .live-dot::after, .step.live .verb { animation: none; }
   .step.live .verb { color: var(--text-muted); }
 }
 

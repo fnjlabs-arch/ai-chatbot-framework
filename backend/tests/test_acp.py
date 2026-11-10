@@ -20,7 +20,7 @@ async def test_initialize_and_session_lifecycle(client, user):
         assert init["protocolVersion"] == 1
         caps = init["agentCapabilities"]
         assert caps["loadSession"] is True and caps["promptCapabilities"]["embeddedContext"] is True
-        assert init["agentInfo"]["name"] == "ai-chatbot-framework" and init["authMethods"] == []
+        assert init["agentInfo"]["name"] == "sadsha-ai-agent" and init["authMethods"] == []
 
         sid = (await acp.request("session/new", {"cwd": "/home/me", "mcpServers": []}))["sessionId"]
         turn = await prompt(acp, sid, "hello acp")

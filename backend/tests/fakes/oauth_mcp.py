@@ -78,7 +78,7 @@ async def authorize(request: Request):
     target = q["redirect_uri"] + "?" + urlencode({"code": code, "state": q.get("state", "")})
     return HTMLResponse(
         f"""<!doctype html><html><body style="font-family:sans-serif;padding:40px">
-<h1>Notes wants access</h1><p>AI Chatbot Framework is asking to read your notes.</p>
+<h1>Notes wants access</h1><p>SadSha AI Agent is asking to read your notes.</p>
 <a id="allow" href="{html.escape(target)}">Allow access</a></body></html>"""
     )
 

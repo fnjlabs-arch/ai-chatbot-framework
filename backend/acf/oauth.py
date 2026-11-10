@@ -2,10 +2,10 @@
 
 Flow (the browser does the redirect part):
 1. Frontend calls POST /api/mcp/servers/{name}/oauth/start with its origin.
-2. AI Chatbot Framework discovers the authorization server (RFC 9728 + RFC 8414), registers itself as a client
+2. SadSha AI Agent discovers the authorization server (RFC 9728 + RFC 8414), registers itself as a client
    (RFC 7591 dynamic registration) unless a client_id is configured, and returns the authorize URL.
 3. The user signs in; the provider redirects to <origin>/oauth/callback?code=…&state=….
-4. That frontend page posts code+state to POST /api/oauth/callback; AI Chatbot Framework exchanges the code for tokens.
+4. That frontend page posts code+state to POST /api/oauth/callback; SadSha AI Agent exchanges the code for tokens.
 5. Tokens are refreshed automatically before they expire.
 """
 
@@ -161,7 +161,7 @@ async def start(user_id: int, name: str, server_url: str, oauth_cfg: dict, redir
                 r = await client.post(
                     reg,
                     json={
-                        "client_name": "AI Chatbot Framework",
+                        "client_name": "SadSha AI Agent",
                         "redirect_uris": [redirect_uri],
                         "grant_types": ["authorization_code", "refresh_token"],
                         "response_types": ["code"],

@@ -101,7 +101,7 @@ class SecurityHeaders:
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="AI Chatbot Framework", lifespan=lifespan)
+    app = FastAPI(title="SadSha AI Agent", lifespan=lifespan)
     app.add_middleware(SecurityHeaders)
     app.include_router(router)
     app.include_router(acp.router)

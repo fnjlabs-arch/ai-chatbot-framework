@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Starts AI Chatbot Framework for end-to-end tests with a fresh data dir, pointing at the fake model server.
+# Starts SadSha AI Agent for end-to-end tests with a fresh data dir, pointing at the fake model server.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 PY="${PYTHON:-$ROOT/.venv/bin/python}"

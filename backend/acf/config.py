@@ -75,15 +75,15 @@ class Settings:
 
     # Sandbox
     sandbox: str = field(default_factory=lambda: _env("SANDBOX", "docker"))  # docker | local
-    sandbox_prefix: str = field(default_factory=lambda: _env("SANDBOX_PREFIX", "acf-sbx"))
-    sandbox_image: str = field(default_factory=lambda: _env("SANDBOX_IMAGE", "acf-sandbox:latest"))
-    # Host path of data_dir, when AI Chatbot Framework itself runs in a container and talks to the host's Docker.
+    sandbox_prefix: str = field(default_factory=lambda: _env("SANDBOX_PREFIX", "sadsha-sbx"))
+    sandbox_image: str = field(default_factory=lambda: _env("SANDBOX_IMAGE", "sadsha-ai-agent-sandbox:latest"))
+    # Host path of data_dir, when SadSha AI Agent itself runs in a container and talks to the host's Docker.
     sandbox_host_data_dir: str = field(default_factory=lambda: _env("SANDBOX_HOST_DATA_DIR"))
     # Sandboxes get their own bridge network with inter-container traffic off (created when missing).
     # deploy/sandbox-firewall.sh blocks it from private, link-local and metadata addresses by its
     # interface name (ACF_SANDBOX_BRIDGE). "none" cuts sandboxes off from the network.
-    sandbox_network: str = field(default_factory=lambda: _env("SANDBOX_NETWORK", "acf-sandbox"))
-    sandbox_bridge: str = field(default_factory=lambda: _env("SANDBOX_BRIDGE", "acf-sbx0"))
+    sandbox_network: str = field(default_factory=lambda: _env("SANDBOX_NETWORK", "sadsha-sandbox"))
+    sandbox_bridge: str = field(default_factory=lambda: _env("SANDBOX_BRIDGE", "sadsha-sbx0"))
     # Container runtime, e.g. "runsc" (gVisor: a user-space kernel between sandboxes and the host).
     sandbox_runtime: str = field(default_factory=lambda: _env("SANDBOX_RUNTIME"))
     sandbox_memory: str = field(default_factory=lambda: _env("SANDBOX_MEMORY", "1g"))
