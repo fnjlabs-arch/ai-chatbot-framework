@@ -124,15 +124,15 @@ jobs:
           POSTGRES_PASSWORD=ci ACF_SECRET_KEY=ci-secret-key-that-is-long-enough-000000 docker compose config -q
           docker compose -f docker-compose.dev.yml config -q
       - name: Build sandbox image
-        run: docker build -t acf-sandbox:latest sandbox
+        run: docker build -t sadsha-ai-agent-sandbox:latest sandbox
       - name: Build app image
-        run: docker build -t ai-chatbot-framework:latest .
+        run: docker build -t sadsha-ai-agent:latest .
       - name: Build the dev stack with compose (as developers run it)
         run: docker compose -f docker-compose.dev.yml build
       - name: Smoke test the sandbox image
         run: |
-          docker run --rm acf-sandbox:latest sh -c 'python3 --version && curl --version && node --version && npx --version && uvx --version'
+          docker run --rm sadsha-ai-agent-sandbox:latest sh -c 'python3 --version && curl --version && node --version && npx --version && uvx --version'
           # agent-browser + Chromium under the same restrictions as a real user sandbox
           docker run --rm --user 1000:1000 --cap-drop ALL --security-opt no-new-privileges \
-            -e HOME=/tmp/home acf-sandbox:latest sh -c \
+            -e HOME=/tmp/home sadsha-ai-agent-sandbox:latest sh -c \
             'agent-browser open "data:text/html,<title>acf-ok</title>" && agent-browser eval document.title | grep acf-ok && agent-browser close'
